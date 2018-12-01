@@ -29,7 +29,7 @@ public class InputController : MonoBehaviour {
         m_controller.SetDirectionalInput(directionalInput);
 
         // Jumping
-        if (Input.GetKeyDown(KeyCode.Space)) {
+        if (Input.GetButtonDown("Jump")) {
             if (m_ledgeTrait && m_controller.collisions.ledgeIsGrabbed)
             {
                 m_ledgeTrait.ClimbLedge();
@@ -39,7 +39,7 @@ public class InputController : MonoBehaviour {
         }
 
         // Early Ending Jump
-        if (Input.GetKeyUp(KeyCode.Space)) {
+        if (Input.GetButtonUp("Jump")) {
             if (m_jumpTrait) m_jumpTrait.OnJumpInputUp();
         }
 

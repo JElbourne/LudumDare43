@@ -11,6 +11,14 @@ public class TraitInstantDeath : MonoBehaviour {
         if ((damageLayer & 1 << other.gameObject.layer) == 1 << other.gameObject.layer)
         {
             Debug.Log("PLAYER DEAD");
+            TraitDeath td = GetComponent<TraitDeath>();
+
+            if (td)
+            {
+                Debug.Log("Found GameObjects Death");
+                td.IsDead();
+            }
+            other.enabled = false;
         }
     }
 }

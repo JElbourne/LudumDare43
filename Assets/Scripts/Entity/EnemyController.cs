@@ -16,7 +16,6 @@ public class EnemyController : MonoBehaviour {
     private float currentHealth;
     private float currentSpeed;
     private float currentSleepingTime;
-    private float currentDazedTime;
 
     Rigidbody2D rb;
     bool onPlatform = false;
@@ -32,7 +31,6 @@ public class EnemyController : MonoBehaviour {
     void Start () {
         currentSpeed = speed;
         currentSleepingTime = 0;
-        currentDazedTime = 0;
         currentHealth = health;
         timeSinceLastDirection = 1f;
         if (platformEdgeDistance < transform.localScale.x) platformEdgeDistance = transform.localScale.x;
@@ -42,14 +40,17 @@ public class EnemyController : MonoBehaviour {
 	void Update () {
 
         timeSinceLastDirection += Time.deltaTime;
-
-        UpdateSleeping();
-        UpdateDazed();
-
-        if (!onPlatform)
+        Debug.Log(currentSleepingTime);
+        if (currentSleepingTime > 0)
         {
-            CheckOnPlatform();
+            currentSleepingTime -= Time.deltaTime;
         } else
+        {
+            WakeUp();
+        }
+
+        CheckOnPlatform();
+        if (onPlatform)
         {
             if(timeSinceLastDirection >= 1f) CheckPlatformEdge();
         }
@@ -65,6 +66,7 @@ public class EnemyController : MonoBehaviour {
             onPlatform = true;
             rb.velocity = Vector2.zero;
             rb.angularVelocity = 0f;
+            rb.Sleep();
         } else
         {
             onPlatform = false;
@@ -89,50 +91,40 @@ public class EnemyController : MonoBehaviour {
     public void TakeDamage(float damage)
     {
         Debug.Log("Enemy Taking Damage");
-        currentDazedTime = dazedTime;
-
+        // Particle Blood Effect
         Instantiate(bloodEffect, transform.position, Quaternion.identity);
 
         currentHealth -= damage;
-        if (currentHealth <= 0) IsSleeping();
-    }
-
-    void UpdateSleeping()
-    {
-        if (currentSleepingTime <= 0)
+        if (currentHealth <= 0)
         {
-            currentSpeed = speed;
-            currentHealth = health;
-        }
-        else
+            IsSleeping();
+        } else
         {
-            Debug.Log("Enemy Is Sleeping");
-            currentSpeed = 0;
-            currentSleepingTime -= Time.deltaTime;
+            IsDazed();
         }
     }
 
-    void UpdateDazed()
+    void IsDazed()
     {
-        if (currentDazedTime <= 0)
-        {
-            Debug.Log("Enemy is NOT Dazzed");
-            currentSpeed = speed;
-        }
-        else
-        {
-            Debug.Log("Enemy is Dazzed");
-            Debug.Log(currentDazedTime);
-            currentSpeed = 0;
-            currentDazedTime -= Time.deltaTime;
-        }
+        Debug.Log("Enemy Is Dazed");
+        currentSpeed = 0;
+        currentSleepingTime = dazedTime;
     }
 
     void IsSleeping()
     {
         Debug.Log("Enemy Is Sleeping");
+        currentSpeed = 0;
         currentSleepingTime = sleepingTime;
-
-        Debug.Log("It Worked...the enemy is sleeping");
+        transform.localScale = new Vector3(0.8f, 0.8f, 0.8f);
     }
+
+    void WakeUp()
+    {
+        Debug.Log("Enemy Is Waking");
+        currentSpeed = speed;
+        if (currentHealth <= 0) currentHealth = health;
+        transform.localScale = new Vector3(1f, 1f, 1f);
+    }
+
 }

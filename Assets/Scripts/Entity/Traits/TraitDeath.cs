@@ -13,7 +13,14 @@ public class TraitDeath : MonoBehaviour {
         //Play Sound
         //Play Animation
         //Play Particle Effects
+        
+        if (gameObject.tag == "Player")
+        {
+            GameController.Instance.GameOver();
+        };
+
         Debug.Log("About to destroy");
         Destroy(gameObject);
+
     }
 }
