@@ -4,11 +4,27 @@
 public class TraitMove : MonoBehaviour {
 
     EntityController m_controller;
+    Animator animator;
 
 	void Start()
 	{
         m_controller = GetComponent<EntityController>();
+        animator = GetComponent<Animator>();
 	}
+
+    void SetAnimation(Vector2 moveAmount)
+    {
+        if (moveAmount.x > 0)
+        {
+            animator.SetInteger("FaceDir", 1);
+        } else if (moveAmount.x < 0)
+        {
+            animator.SetInteger("FaceDir", -1);
+        } else
+        {
+            animator.SetInteger("FaceDir", 0);
+        }
+    }
 
 	public void Move(Vector2 moveAmount, bool standingOnPlatform)
     {
@@ -42,6 +58,8 @@ public class TraitMove : MonoBehaviour {
         if (m_controller.collisions.ledgeIsGrabbed) {
             moveAmount.y = 0;
         }
+
+        SetAnimation(moveAmount);
 
         transform.Translate(moveAmount);
 

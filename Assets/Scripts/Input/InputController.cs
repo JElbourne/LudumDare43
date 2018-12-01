@@ -10,12 +10,14 @@ public class InputController : MonoBehaviour {
     TraitJump m_jumpTrait;
     TraitLedgeGrab m_ledgeTrait;
     TraitCrouch m_crouchTrait;
+    TraitMeleeAttack m_meleeTrait;
 
 	// Use this for initialization
 	void Start () {
         m_jumpTrait = target.GetComponent<TraitJump>();
         m_crouchTrait = target.GetComponent<TraitCrouch>();
         m_ledgeTrait = target.GetComponent<TraitLedgeGrab>();
+        m_meleeTrait = target.GetComponent<TraitMeleeAttack>();
         m_controller = target.GetComponent<EntityController>();
 	}
 
@@ -49,6 +51,12 @@ public class InputController : MonoBehaviour {
         if (Input.GetButtonUp("Crouch"))
         {
             if (m_crouchTrait) m_crouchTrait.OnCrouchInputUp();
+        }
+
+        // Melee Attack
+        if (Input.GetButtonDown("Melee"))
+        {
+            if (m_meleeTrait) m_meleeTrait.OnMeleeAttackInputDown();
         }
     }
 

@@ -18,5 +18,10 @@ public class GameController : MonoBehaviour {
             Destroy(this);
         }
 	}
+
+    public void GameOver()
+    {
+        Debug.Log("Game Controller sets game over");
+    }
 	
 }

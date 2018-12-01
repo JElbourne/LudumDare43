@@ -6,6 +6,7 @@ public class EntityController : RaycastController {
     public LayerMask collisionMask;
     public float moveSpeed = 6;
     public float maxSlopeAngle = 60;
+    public float startingHealth = 5;
     public CollisionInfo collisions;
 
     [HideInInspector]
@@ -16,6 +17,7 @@ public class EntityController : RaycastController {
     TraitCrouch m_crouchTrait;
     TraitWallSlide m_wallSlide;
     TraitLedgeGrab m_ledgeGrab;
+    TraitHealth m_healthTrait;
 
     public override void Awake()
     {
@@ -24,12 +26,15 @@ public class EntityController : RaycastController {
         m_moveTrait = GetComponent<TraitMove>();
         m_crouchTrait = GetComponent<TraitCrouch>();
         m_wallSlide = GetComponent<TraitWallSlide>();
+        m_healthTrait = GetComponent<TraitHealth>();
     }
 
     public override void Start()
     {
         base.Start();
         collisions.faceDir = 1;
+        m_healthTrait.SetHealth(startingHealth);
+
     }
 
     void Update()
@@ -40,6 +45,11 @@ public class EntityController : RaycastController {
         if (m_wallSlide) m_wallSlide.HandleWallSliding();
         // Move last in the order
         if (m_moveTrait) m_moveTrait.Move(m_physics.velocity * Time.deltaTime, directionalInput);
+    }
+
+    public void TakeDamage(float damage)
+    {
+        m_healthTrait.TakeDamage(damage);
     }
 
     public void SetDirectionalInput(Vector2 input)
