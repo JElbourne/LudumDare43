@@ -10,6 +10,7 @@ public class EnemyController : MonoBehaviour {
     public float dazedTime;
     public float platformEdgeDistance;
     public GameObject bloodEffect;
+    public GameObject sleepEffect;
     public LayerMask platformEdge;
     public LayerMask platform;
     public LayerMask playerLayer;
@@ -19,6 +20,7 @@ public class EnemyController : MonoBehaviour {
     private float currentSleepingTime;
 
     Rigidbody2D rb;
+    GameObject currentSleepEffect;
     bool onPlatform = false;
     float direction = 1;
     float timeSinceLastDirection;
@@ -135,6 +137,7 @@ public class EnemyController : MonoBehaviour {
         currentSleepingTime = sleepingTime;
         transform.localScale = new Vector3(0.8f, 0.8f, 0.8f);
         animator.SetBool("isSleeping", true);
+        currentSleepEffect = Instantiate(sleepEffect, transform.position, Quaternion.identity, transform);
     }
 
     void WakeUp()
@@ -143,6 +146,7 @@ public class EnemyController : MonoBehaviour {
         if (currentHealth <= 0) currentHealth = health;
         transform.localScale = new Vector3(1f, 1f, 1f);
         animator.SetBool("isSleeping", false);
+        Destroy(currentSleepEffect);
     }
 
 }

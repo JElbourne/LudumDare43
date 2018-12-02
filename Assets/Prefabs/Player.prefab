@@ -59,8 +59,6 @@ GameObject:
   - component: {fileID: 114500040459789720}
   - component: {fileID: 114386922345609132}
   - component: {fileID: 114612615095454326}
-  - component: {fileID: 114666598782645956}
-  - component: {fileID: 114788992517965828}
   - component: {fileID: 114650137620023278}
   - component: {fileID: 114225327331568018}
   - component: {fileID: 114798341980833784}
@@ -93,13 +91,13 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1368089537438686}
-  m_LocalRotation: {x: 0, y: 0, z: -0.36568913, w: 0.930737}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.43, y: -0.1, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_Children: []
   m_Father: {fileID: 4532888973395784}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -42.9}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4532888973395784
 Transform:
   m_ObjectHideFlags: 1
@@ -275,7 +273,7 @@ MonoBehaviour:
     m_Bits: 256
   moveSpeed: 6
   maxSlopeAngle: 60
-  startingHealth: 5
+  startingHealth: 10
   directionalInput: {x: 0, y: 0}
 --- !u!114 &114612615095454326
 MonoBehaviour:
@@ -305,30 +303,6 @@ MonoBehaviour:
   damageLayer:
     serializedVersion: 2
     m_Bits: 512
---- !u!114 &114666598782645956
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1951594851748546}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 116b92bebd7ea4adc866e68cf636e8be, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  wallStickTime: 0.25
-  wallSlideSpeedMax: 3
---- !u!114 &114788992517965828
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1951594851748546}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fce1dcd4aa5464d6db165402d4cdf6f5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &114798341980833784
 MonoBehaviour:
   m_ObjectHideFlags: 1

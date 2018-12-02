@@ -7,6 +7,7 @@ public class MenuController : MonoBehaviour {
 
     public void StartGame()
     {
+        Debug.Log("Button Clicked");
         SceneManager.LoadScene("PlayGame");
     }
 

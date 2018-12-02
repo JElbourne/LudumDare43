@@ -10,11 +10,11 @@ public class TraitHealth : MonoBehaviour {
     float m_health = 0;
 
     bool isHurt = false;
-    //SpriteRenderer sr;
+    SpriteRenderer sr;
 
     private void Awake()
     {
-        //sr = GetComponent<SpriteRenderer>();
+        sr = GetComponent<SpriteRenderer>();
     }
 
     private void Update()
@@ -26,7 +26,7 @@ public class TraitHealth : MonoBehaviour {
         {
             if (isHurt)
             {
-                //sr.color = new Color(1, 1, 1, 1);
+                sr.color = new Color(1, 1, 1, 1);
                 isHurt = false;
             }
 
@@ -48,7 +48,7 @@ public class TraitHealth : MonoBehaviour {
         {
             isHurt = true;
             hurtTimeCounter = safeAfterHurtTime;
-            //sr.color = new Color(1, 1, 1, 0.8f);
+            sr.color = new Color(1, 1, 1, 0.8f);
 
             m_health -= damage;
             Debug.Log("PLAYER GOT HURT");

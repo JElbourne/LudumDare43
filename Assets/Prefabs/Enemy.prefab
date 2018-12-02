@@ -142,8 +142,10 @@ MonoBehaviour:
   speed: 1
   sleepingTime: 5
   dazedTime: 0.25
-  platformEdgeDistance: 0.5
+  platformEdgeDistance: 0.6
   bloodEffect: {fileID: 1998134739046160, guid: 408eaa9978a29874189bd343c2973742,
+    type: 2}
+  sleepEffect: {fileID: 1378221378824700, guid: aa0caa8ff58d35c4392258ac79e0041a,
     type: 2}
   platformEdge:
     serializedVersion: 2
