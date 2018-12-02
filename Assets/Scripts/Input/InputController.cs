@@ -68,6 +68,10 @@ public class InputController : MonoBehaviour {
         {
             SceneManager.LoadScene("Menu");
         }
+        if (Input.GetKeyDown("b"))
+        {
+            PlayerPrefs.DeleteAll();
+        }
     }
 
 }

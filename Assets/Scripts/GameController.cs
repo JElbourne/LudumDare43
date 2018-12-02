@@ -5,12 +5,13 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class GameController : MonoBehaviour {
-
+    
     public static GameController Instance;
 
     public TextMeshProUGUI scoreTextUI;
 
-    public List<GameObject> enemyEntities = new List<GameObject>();
+    //public List<GameObject> enemyEntities = new List<GameObject>();
+
 
     int score = 0;
     int highScore;
@@ -30,6 +31,8 @@ public class GameController : MonoBehaviour {
     private void Start()
     {
         highScore = PlayerPrefs.GetInt("HighScore");
+
+        AudioManager.instance.ChangeBackgroundVolume(0.5f);
     }
 
     private void Update()
@@ -42,13 +45,23 @@ public class GameController : MonoBehaviour {
         PlayerPrefs.SetInt("Score", score);
         if (score > highScore) PlayerPrefs.SetInt("HighScore", score);
 
-        Debug.Log("Game Controller sets game over");
+        //Debug.Log("Game Controller sets game over");
+
+        AudioManager.instance.StopBackgroundMusic();
+        AudioManager.instance.ChangeBackgroundVolume(1.0f);
+        AudioManager.instance.Play("GameOverMusic");
+
         SceneManager.LoadScene("GameOver");
     }
 
     public void AddToScore(int value)
     {
         score += value;
+    }
+
+    public int GetScore()
+    {
+        return score;
     }
 	
 }

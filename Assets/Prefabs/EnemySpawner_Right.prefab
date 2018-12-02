@@ -85,5 +85,5 @@ MonoBehaviour:
   direction: -1
   velocityRangeMax: 500
   velocityRangeMin: 200
-  spawnDelayRangeMax: 12
+  spawnDelayRangeMax: 15
   spawnDelayRangeMin: 5

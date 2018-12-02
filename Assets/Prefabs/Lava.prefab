@@ -330,7 +330,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startMarker: {fileID: 4437485456935730}
   endMarker: {fileID: 4127319736278476}
-  speed: 0.1
+  speed: 0.075
   enemyLayer:
     serializedVersion: 2
     m_Bits: 1024

@@ -217,7 +217,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startTimeBtwAttack: 0.3
-  attackRange: 0.48
+  attackRange: 1
   attackDamage: 0.5
   attackPos: {fileID: 4262315722442022}
   enemyLayer:
@@ -316,6 +316,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   safeAfterHurtTime: 0.5
   hitPointsTextUI: {fileID: 0}
+  playerSprite: {fileID: 212501828957072260}
 --- !u!114 &114947435147072138
 MonoBehaviour:
   m_ObjectHideFlags: 1

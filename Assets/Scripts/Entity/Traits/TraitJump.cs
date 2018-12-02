@@ -13,7 +13,7 @@ public class TraitJump : MonoBehaviour {
 
     float maxJumpVelocity;
     float minJumpVelocity;
-    int wallDirX;
+    //int wallDirX;
 
     EntityController m_controller;
     TraitPhysics m_physics;
@@ -45,27 +45,27 @@ public class TraitJump : MonoBehaviour {
         // Player can not jump if crouching.
         if (m_controller.collisions.isCrouching) return;
 
-        wallDirX = (m_controller.collisions.left) ? -1 : 1;
+        //wallDirX = (m_controller.collisions.left) ? -1 : 1;
 
         // Jumping when sliding on a wall
-        if (m_controller.collisions.wallSliding)
-        {
-            if (wallDirX == m_controller.directionalInput.x)
-            {
-                m_physics.velocity.x = -wallDirX * wallJumpClimb.x;
-                m_physics.velocity.y = wallJumpClimb.y;
-            }
-            else if (m_controller.directionalInput.x == 0)
-            {
-                m_physics.velocity.x = -wallDirX * wallJumpOff.x;
-                m_physics.velocity.y = wallJumpOff.y;
-            }
-            else
-            {
-                m_physics.velocity.x = -wallDirX * wallLeap.x;
-                m_physics.velocity.y = wallLeap.y;
-            }
-        }
+        //if (m_controller.collisions.wallSliding)
+        //{
+        //    if (wallDirX == m_controller.directionalInput.x)
+        //    {
+        //        m_physics.velocity.x = -wallDirX * wallJumpClimb.x;
+        //        m_physics.velocity.y = wallJumpClimb.y;
+        //    }
+        //    else if (m_controller.directionalInput.x == 0)
+        //    {
+        //        m_physics.velocity.x = -wallDirX * wallJumpOff.x;
+        //        m_physics.velocity.y = wallJumpOff.y;
+        //    }
+        //    else
+        //    {
+        //        m_physics.velocity.x = -wallDirX * wallLeap.x;
+        //        m_physics.velocity.y = wallLeap.y;
+        //    }
+        //}
 
         // Jumping while standing on something
         if (m_controller.collisions.below)
@@ -74,11 +74,11 @@ public class TraitJump : MonoBehaviour {
             // Change the angle of the jump if sliding down a steep slope
             if (m_controller.collisions.slidingDownMaxSlope)
             {
-                if (m_controller.directionalInput.x != -Mathf.Sign(m_controller.collisions.slopeNormal.x))
-                { // not jumping against max slope
-                    m_physics.velocity.y = maxJumpVelocity * m_controller.collisions.slopeNormal.y;
-                    m_physics.velocity.x = maxJumpVelocity * m_controller.collisions.slopeNormal.x;
-                }
+                //if (m_controller.directionalInput.x != -Mathf.Sign(m_controller.collisions.slopeNormal.x))
+                //{ // not jumping against max slope
+                //    m_physics.velocity.y = maxJumpVelocity * m_controller.collisions.slopeNormal.y;
+                //    m_physics.velocity.x = maxJumpVelocity * m_controller.collisions.slopeNormal.x;
+                //}
             }
             else
             {

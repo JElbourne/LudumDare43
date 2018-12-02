@@ -114,6 +114,7 @@ public class EnemyController : MonoBehaviour {
         // Particle Blood Effect
         Instantiate(bloodEffect, transform.position, Quaternion.identity);
         shakeCamera.CameraShake();
+        AudioManager.instance.Play("BroomHit");
 
         currentHealth -= damage;
         if (currentHealth <= 0)

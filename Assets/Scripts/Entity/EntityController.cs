@@ -15,7 +15,7 @@ public class EntityController : RaycastController {
     TraitPhysics m_physics;
     TraitMove m_moveTrait;
     TraitCrouch m_crouchTrait;
-    TraitWallSlide m_wallSlide;
+    //TraitWallSlide m_wallSlide;
     TraitLedgeGrab m_ledgeGrab;
     TraitHealth m_healthTrait;
 
@@ -25,7 +25,7 @@ public class EntityController : RaycastController {
         m_physics = GetComponent<TraitPhysics>();
         m_moveTrait = GetComponent<TraitMove>();
         m_crouchTrait = GetComponent<TraitCrouch>();
-        m_wallSlide = GetComponent<TraitWallSlide>();
+        //m_wallSlide = GetComponent<TraitWallSlide>();
         m_healthTrait = GetComponent<TraitHealth>();
     }
 
@@ -42,7 +42,7 @@ public class EntityController : RaycastController {
         // Determine Velocity to start
         m_physics.CalculateVelocity();
 
-        if (m_wallSlide) m_wallSlide.HandleWallSliding();
+        //if (m_wallSlide) m_wallSlide.HandleWallSliding();
         // Move last in the order
         if (m_moveTrait) m_moveTrait.Move(m_physics.velocity * Time.deltaTime, directionalInput);
     }
@@ -131,7 +131,7 @@ public class EntityController : RaycastController {
 
             } else if (hitCount == horizontalRayCount - 1 &&
                         m_physics.velocity.y < 0) {
-                collisions.ledgeIsGrabbed = true;
+                //collisions.ledgeIsGrabbed = true;
             }
 
         }

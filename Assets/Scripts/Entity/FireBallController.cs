@@ -11,7 +11,7 @@ public class FireBallController : MonoBehaviour {
 
     private void Awake()
     {
-        GameController.Instance.enemyEntities.Add(this.gameObject);
+        //GameController.Instance.enemyEntities.Add(this.gameObject);
     }
     // Update is called once per frame
     void FixedUpdate () {

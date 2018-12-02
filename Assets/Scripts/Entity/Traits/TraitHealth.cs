@@ -12,11 +12,11 @@ public class TraitHealth : MonoBehaviour {
     float m_health = 0;
 
     bool isHurt = false;
-    SpriteRenderer sr;
+    public SpriteRenderer playerSprite;
 
     private void Awake()
     {
-        sr = GetComponent<SpriteRenderer>();
+        
     }
 
     private void Update()
@@ -28,7 +28,7 @@ public class TraitHealth : MonoBehaviour {
         {
             if (isHurt)
             {
-                sr.color = new Color(1, 1, 1, 1);
+                playerSprite.color = new Color(1, 1, 1, 1);
                 isHurt = false;
             }
 
@@ -51,7 +51,9 @@ public class TraitHealth : MonoBehaviour {
         {
             isHurt = true;
             hurtTimeCounter = safeAfterHurtTime;
-            sr.color = new Color(1, 1, 1, 0.8f);
+            playerSprite.color = new Color(1,0,0,0.5f);
+
+            AudioManager.instance.Play("PlayerHurt");
 
             m_health -= damage;
             Debug.Log("PLAYER GOT HURT");

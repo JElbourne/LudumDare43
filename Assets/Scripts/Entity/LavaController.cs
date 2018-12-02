@@ -8,7 +8,7 @@ public class LavaController : MonoBehaviour {
     public Transform endMarker;
 
     // Movement speed in units/sec.
-    public float speed = 1.0F;
+    public float speed = 0.075f;
 
     // Time when the movement started.
     private float startTime;
@@ -36,12 +36,39 @@ public class LavaController : MonoBehaviour {
 
         // Set our position as a fraction of the distance between the markers.
         transform.position = Vector3.Lerp(startMarker.position, endMarker.position, fracJourney);
+
+        if (GameController.Instance.GetScore() > 200)
+        {
+            Debug.Log("Lava Increasing at 200");
+            AudioManager.instance.ChangeBackgroundVolume(1.0f);
+            speed = 0.4f;
+        }
+        else if (GameController.Instance.GetScore() > 100)
+        {
+            Debug.Log("Lava Increasing at 100");
+            AudioManager.instance.ChangeBackgroundVolume(0.80f);
+            speed = 0.3f;
+        }
+        else if (GameController.Instance.GetScore() > 50)
+        {
+            Debug.Log("Lava Increasing at 100");
+            AudioManager.instance.ChangeBackgroundVolume(0.7f);
+            speed = 0.2f;
+        }
+        else if (GameController.Instance.GetScore() > 150)
+        {
+            AudioManager.instance.ChangeBackgroundVolume(0.6f);
+            speed = 0.1f;
+        }
     }
 
     public void OnTriggerEnter2D(Collider2D other)
     {
+        
+
         if ((enemyLayer & 1 << other.gameObject.layer) == 1 << other.gameObject.layer)
         {
+            AudioManager.instance.Play("HitLava");
 
             //Debug.Log("Lava Going Down");
             TraitDeath td = other.gameObject.GetComponent<TraitDeath>();

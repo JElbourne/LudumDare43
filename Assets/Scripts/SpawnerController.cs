@@ -18,7 +18,7 @@ public class SpawnerController : MonoBehaviour {
     void Start()
     {
         currentTimeBtwSpawn = Random.Range(spawnDelayRangeMin, spawnDelayRangeMax);
-        //SpawnEnemy();
+        if (direction == 1) Invoke("SpawnEnemy", 1);
     }
 
     void Update()

@@ -35,6 +35,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4688535103288900}
   - component: {fileID: 114471168375154044}
+  - component: {fileID: 95200012593801316}
   m_Layer: 0
   m_Name: EnemySpawner_Left
   m_TagString: Untagged
@@ -69,6 +70,24 @@ Transform:
   m_Father: {fileID: 4688535103288900}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &95200012593801316
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1642730012129394}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: c648e7fa8bbde164eb927687f8aaadff, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!114 &114471168375154044
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -85,5 +104,5 @@ MonoBehaviour:
   direction: 1
   velocityRangeMax: 500
   velocityRangeMin: 200
-  spawnDelayRangeMax: 12
+  spawnDelayRangeMax: 15
   spawnDelayRangeMin: 5
