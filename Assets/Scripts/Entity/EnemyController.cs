@@ -23,12 +23,14 @@ public class EnemyController : MonoBehaviour {
     float direction = 1;
     float timeSinceLastDirection;
 
+    Animator animator;
     ShakeCamera shakeCamera;
 
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
         shakeCamera = Camera.main.GetComponent<ShakeCamera>();
+        animator = GetComponentInChildren<Animator>();
     }
 
     // Use this for initialization
@@ -132,6 +134,7 @@ public class EnemyController : MonoBehaviour {
         currentSpeed = 0;
         currentSleepingTime = sleepingTime;
         transform.localScale = new Vector3(0.8f, 0.8f, 0.8f);
+        animator.SetBool("isSleeping", true);
     }
 
     void WakeUp()
@@ -139,6 +142,7 @@ public class EnemyController : MonoBehaviour {
         currentSpeed = speed;
         if (currentHealth <= 0) currentHealth = health;
         transform.localScale = new Vector3(1f, 1f, 1f);
+        animator.SetBool("isSleeping", false);
     }
 
 }
