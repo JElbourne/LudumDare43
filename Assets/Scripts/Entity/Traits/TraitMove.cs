@@ -16,13 +16,13 @@ public class TraitMove : MonoBehaviour {
     {
         if (moveAmount.x > 0)
         {
-            animator.SetInteger("FaceDir", 1);
+            animator.SetInteger("faceDir", 1);
         } else if (moveAmount.x < 0)
         {
-            animator.SetInteger("FaceDir", -1);
+            animator.SetInteger("faceDir", -1);
         } else
         {
-            animator.SetInteger("FaceDir", 0);
+            animator.SetInteger("faceDir", 0);
         }
     }
 
@@ -37,6 +37,7 @@ public class TraitMove : MonoBehaviour {
         m_controller.collisions.Reset();
         m_controller.collisions.moveAmountOld = moveAmount;
         m_controller.directionalInput = input;
+        SetAnimation(moveAmount);
 
         if (moveAmount.y < 0)
         {
@@ -58,8 +59,6 @@ public class TraitMove : MonoBehaviour {
         if (m_controller.collisions.ledgeIsGrabbed) {
             moveAmount.y = 0;
         }
-
-        SetAnimation(moveAmount);
 
         transform.Translate(moveAmount);
 

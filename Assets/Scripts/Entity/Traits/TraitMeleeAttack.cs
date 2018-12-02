@@ -12,9 +12,10 @@ public class TraitMeleeAttack : MonoBehaviour {
     public Transform attackPos;
     public LayerMask enemyLayer;
 
+    public Animator attackAnimator;
+
 	// Use this for initialization
 	void Start () {
-		
 	}
 	
 	// Update is called once per frame
@@ -22,7 +23,7 @@ public class TraitMeleeAttack : MonoBehaviour {
 		if (timeBtwAttack <= 0)
         {
             timeBtwAttack = 0;
-
+            attackAnimator.SetBool("isAttacking", false);
         } else
         {
             timeBtwAttack -= Time.deltaTime;
@@ -33,6 +34,8 @@ public class TraitMeleeAttack : MonoBehaviour {
     {
         if (timeBtwAttack <= 0)
         {
+            attackAnimator.SetBool("isAttacking", true);
+            //animator.Play("Attack");
             timeBtwAttack = startTimeBtwAttack;
 
             Collider2D[] enemiesToDamage = Physics2D.OverlapCircleAll(attackPos.position, attackRange, enemyLayer);

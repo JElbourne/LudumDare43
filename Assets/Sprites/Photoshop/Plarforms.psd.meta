@@ -20,6 +20,7 @@ TextureImporter:
     21300030: Plarforms_9
     21300032: Plarforms_10
     21300034: Plarforms_11
+    21300036: Plarforms_12
   externalObjects: {}
   serializedVersion: 7
   mipmaps:
@@ -116,7 +117,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c7db1aa100dd56547ba169336c814dde
+      spriteID: 766fcc7dcb3b18c47959872d2c53c844
       vertices: []
       indices: 
       edges: []
@@ -136,7 +137,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 935d8d24af7bf594baa06d600add88a6
+      spriteID: 4929edde1ceee5f4684e0e1a3798c463
       vertices: []
       indices: 
       edges: []
@@ -156,7 +157,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 00d0745c92722744c9e8943cc78153ca
+      spriteID: f9361ec4044f4e345915886b866e3360
       vertices: []
       indices: 
       edges: []
@@ -176,7 +177,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5f45c23b98f65804cbb65fcffd57f5c5
+      spriteID: 04cfe4e63bf49cd4eb461eff396f6179
       vertices: []
       indices: 
       edges: []
@@ -196,13 +197,33 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b60c07b5a8d644842b569c7a15c938d1
+      spriteID: a003091299245734aaf81b7c71301979
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
       name: Plarforms_5
+      rect:
+        serializedVersion: 2
+        x: 1180
+        y: 947
+        width: 64
+        height: 253
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f208a011863c18747ab795956b5272b6
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Plarforms_6
       rect:
         serializedVersion: 2
         x: 1408
@@ -216,13 +237,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bc7805a4999a5b045be1e093e43f7093
+      spriteID: 776ff84f8e8fec846b42b2d08bdd8b6f
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Plarforms_6
+      name: Plarforms_7
       rect:
         serializedVersion: 2
         x: 916
@@ -236,13 +257,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e4fd202f84ac57e48989f3b5f24fd2fb
+      spriteID: 13c98ee2d0ab14645becde7872295f7c
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Plarforms_7
+      name: Plarforms_8
       rect:
         serializedVersion: 2
         x: 943
@@ -256,13 +277,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2cbd079f79dd5d844905b6e5951e5f48
+      spriteID: 34a4d24ec6f9a55439ec19f0c107ae83
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Plarforms_8
+      name: Plarforms_9
       rect:
         serializedVersion: 2
         x: 972
@@ -276,13 +297,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4b440148052fba64f8fcb3e1a6c7a065
+      spriteID: 0a6d7cfba86f59244a8dd30d7a87666c
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Plarforms_9
+      name: Plarforms_10
       rect:
         serializedVersion: 2
         x: 42
@@ -296,13 +317,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6e8b5ef0de5f0bd4a98f5affff54e571
+      spriteID: e8e0629fd0854ca4080ea6fe12f02691
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Plarforms_10
+      name: Plarforms_11
       rect:
         serializedVersion: 2
         x: 256
@@ -316,13 +337,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 62ad365a36f34884e995e073e0eaf973
+      spriteID: 3e75d68fab017104793847cf7964b084
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Plarforms_11
+      name: Plarforms_12
       rect:
         serializedVersion: 2
         x: 576
@@ -336,7 +357,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 593eb018851c8704792df351330d8ab0
+      spriteID: 0b403b2cab4131240860eb38e38bc18e
       vertices: []
       indices: 
       edges: []

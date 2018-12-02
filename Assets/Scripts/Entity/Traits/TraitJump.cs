@@ -17,14 +17,17 @@ public class TraitJump : MonoBehaviour {
 
     EntityController m_controller;
     TraitPhysics m_physics;
+    Animator animator;
 
-	void Start()
+    void Start()
 	{
         m_controller = GetComponent<EntityController>();
         m_physics = GetComponent<TraitPhysics>();
 
         maxJumpVelocity = Mathf.Abs(m_physics.gravity) * m_physics.timeToJumpApex;
         minJumpVelocity = Mathf.Sqrt(2 * Mathf.Abs(m_physics.gravity) * minJumpHeight);
+
+        animator = GetComponent<Animator>();
 	}
 
 	void Update()
@@ -84,6 +87,7 @@ public class TraitJump : MonoBehaviour {
 
             }
             m_controller.collisions.isJumping = true;
+            animator.SetBool("isJumping", true);
         }
     }
 
@@ -95,5 +99,6 @@ public class TraitJump : MonoBehaviour {
             m_physics.velocity.y = minJumpVelocity;
 
         }
+        animator.SetBool("isJumping", false);
     }
 }
