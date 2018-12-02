@@ -12,6 +12,7 @@ public class EnemyController : MonoBehaviour {
     public GameObject bloodEffect;
     public LayerMask platformEdge;
     public LayerMask platform;
+    public LayerMask playerLayer;
 
     private float currentHealth;
     private float currentSpeed;
@@ -22,9 +23,12 @@ public class EnemyController : MonoBehaviour {
     float direction = 1;
     float timeSinceLastDirection;
 
+    ShakeCamera shakeCamera;
+
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
+        shakeCamera = Camera.main.GetComponent<ShakeCamera>();
     }
 
     // Use this for initialization
@@ -40,7 +44,6 @@ public class EnemyController : MonoBehaviour {
 	void Update () {
 
         timeSinceLastDirection += Time.deltaTime;
-        Debug.Log(currentSleepingTime);
         if (currentSleepingTime > 0)
         {
             currentSleepingTime -= Time.deltaTime;
@@ -50,6 +53,10 @@ public class EnemyController : MonoBehaviour {
         }
 
         CheckOnPlatform();
+
+        // Only check if the enemy is not sleeping
+        if (currentSleepingTime <= 0) CheckHitPlayer();
+
         if (onPlatform)
         {
             if(timeSinceLastDirection >= 1f) CheckPlatformEdge();
@@ -82,6 +89,16 @@ public class EnemyController : MonoBehaviour {
         }
     }
 
+    void CheckHitPlayer()
+    {
+        Collider2D playerCollider = Physics2D.OverlapCircle(transform.position, transform.localScale.x * 0.51f, playerLayer);
+        if (playerCollider)
+        {
+            TraitHealth ph = playerCollider.gameObject.GetComponent<TraitHealth>();
+            if (ph) ph.TakeDamage(1.0f);
+        }
+    }
+
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.gray;
@@ -90,9 +107,9 @@ public class EnemyController : MonoBehaviour {
 
     public void TakeDamage(float damage)
     {
-        Debug.Log("Enemy Taking Damage");
         // Particle Blood Effect
         Instantiate(bloodEffect, transform.position, Quaternion.identity);
+        shakeCamera.CameraShake();
 
         currentHealth -= damage;
         if (currentHealth <= 0)
@@ -106,14 +123,12 @@ public class EnemyController : MonoBehaviour {
 
     void IsDazed()
     {
-        Debug.Log("Enemy Is Dazed");
         currentSpeed = 0;
         currentSleepingTime = dazedTime;
     }
 
     void IsSleeping()
     {
-        Debug.Log("Enemy Is Sleeping");
         currentSpeed = 0;
         currentSleepingTime = sleepingTime;
         transform.localScale = new Vector3(0.8f, 0.8f, 0.8f);
@@ -121,7 +136,6 @@ public class EnemyController : MonoBehaviour {
 
     void WakeUp()
     {
-        Debug.Log("Enemy Is Waking");
         currentSpeed = speed;
         if (currentHealth <= 0) currentHealth = health;
         transform.localScale = new Vector3(1f, 1f, 1f);
