@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class InputController : MonoBehaviour {
 
@@ -57,6 +58,15 @@ public class InputController : MonoBehaviour {
         if (Input.GetButtonDown("Melee"))
         {
             if (m_meleeTrait) m_meleeTrait.OnMeleeAttackInputDown();
+        }
+
+        if (Input.GetKeyDown("x"))
+        {
+            SceneManager.LoadScene("PlayGame");
+        }
+        if (Input.GetKeyDown("m"))
+        {
+            SceneManager.LoadScene("Menu");
         }
     }
 

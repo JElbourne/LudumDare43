@@ -51,4 +51,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 19f649053857f454480abce14200a8f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  scoreTextUI: {fileID: 0}
   enemyEntities: []

@@ -1,10 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class TraitHealth : MonoBehaviour {
 
     public float safeAfterHurtTime = 0.5f;
+    public TextMeshProUGUI hitPointsTextUI;
 
     float hurtTimeCounter = 0;
     float m_health = 0;
@@ -31,6 +33,7 @@ public class TraitHealth : MonoBehaviour {
             }
 
         }
+        hitPointsTextUI.text = "Hit Points Left: " + m_health.ToString();
     }
 
     public int GetHealthAsInt()

@@ -42,10 +42,10 @@ public class LavaController : MonoBehaviour {
     {
         if ((enemyLayer & 1 << other.gameObject.layer) == 1 << other.gameObject.layer)
         {
-            Debug.Log("Lava Going Down");
+
+            //Debug.Log("Lava Going Down");
             TraitDeath td = other.gameObject.GetComponent<TraitDeath>();
 
-            //Destroy(other);
             if (td)
             {
                 Debug.Log("Found Enemy Death");
@@ -53,7 +53,8 @@ public class LavaController : MonoBehaviour {
             }
             other.enabled = false;
             startTime = Time.time;
-            //transform.position += Vector3.down * 5f;
+
+            GameController.Instance.AddToScore(5);
         }
     }
 }

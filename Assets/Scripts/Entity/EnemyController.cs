@@ -138,6 +138,7 @@ public class EnemyController : MonoBehaviour {
         transform.localScale = new Vector3(0.8f, 0.8f, 0.8f);
         animator.SetBool("isSleeping", true);
         currentSleepEffect = Instantiate(sleepEffect, transform.position, Quaternion.identity, transform);
+        GameController.Instance.AddToScore(1);
     }
 
     void WakeUp()
